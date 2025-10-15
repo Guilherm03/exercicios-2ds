@@ -4,10 +4,13 @@
   "description": "Primeiro projeto com node.",
   "main": "pessoa.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node pessoa.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
 }
