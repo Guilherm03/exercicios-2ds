@@ -1,7 +1,7 @@
 {
   "name": "ex01-primeiro-projeto-com-node",
   "version": "1.0.0",
-  "description": "Lista de exercícios para os alunos das turmas de Desenvolvimento de Sistemas da escola EEEP Deputado Roberto Mesquita.",
+  "description": "Primeiro projeto com node.",
   "main": "pessoa.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
