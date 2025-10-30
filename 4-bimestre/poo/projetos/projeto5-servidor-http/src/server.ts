@@ -16,7 +16,7 @@ server.listen(PORT, () => {
   console.log(`Servidor funcionando em http://localhost:${PORT}`)
 });
 
-if (process.env.NODE_ENV === "jest") {
+if (process.env.NODE_ENV === "test") {
   server.close(() => {
     console.log("Servidor encerrado.")
   });
