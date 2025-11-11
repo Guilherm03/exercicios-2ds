@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import produtosRouter from "./produto.ts";
+import produtosRouter from "./produtos.js";
 
 const router = Router();
 
@@ -8,7 +8,7 @@ router.get("/ping", (req: Request, res: Response) => {
 });
 
 router.get("/", (req: Request, res: Response) => {
-  res.json({ nome: "João Guilherme", idade: 16 });
+  res.json({ nome: "Everson", idade: 34 });
 });
 
 router.use("/produtos", produtosRouter);
