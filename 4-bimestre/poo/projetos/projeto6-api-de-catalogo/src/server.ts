@@ -6,26 +6,19 @@ import router from "./routes";
 
 dotenv.config();
 
-const server = express();
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
-server.use(helmet());
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
-server.use(express.static(path.join(__dirname, "../public")));
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "../public")));
 
-// Rotas
-server.use("/", router);
+app.use("/", router);
 
-// Iniciar servidor
-const app = server.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}/`);
+const server = app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
-// Encerrar servidor (necessário para testes automatizados)
-app.close(() => {
-  console.log("Servidor encerrado.");
-});
 
-export default app;
+export default server;

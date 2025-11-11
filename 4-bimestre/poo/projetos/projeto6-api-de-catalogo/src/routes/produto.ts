@@ -2,19 +2,16 @@ import { Router, Request, Response } from "express";
 
 const router = Router();
 
-// Lista inicial de produtos
 let produtos = [
   { id: 1, nome: "Mouse Gamer", preco: 120 },
   { id: 2, nome: "Teclado Mecânico", preco: 350 },
   { id: 3, nome: "Monitor Full HD", preco: 900 },
 ];
 
-// GET / → lista todos os produtos
 router.get("/", (req: Request, res: Response) => {
   res.json(produtos);
 });
 
-// GET /:id → retorna um produto específico
 router.get("/:id", (req: Request, res: Response) => {
   const id = Number(req.params.id);
   const produto = produtos.find((p) => p.id === id);
@@ -26,7 +23,6 @@ router.get("/:id", (req: Request, res: Response) => {
   }
 });
 
-// POST / → adiciona novo produto
 router.post("/", (req: Request, res: Response) => {
   const novoProduto = req.body;
   produtos.push(novoProduto);
