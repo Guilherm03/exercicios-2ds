@@ -20,5 +20,7 @@ const server = app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
-
+server.close(() => {
+  console.log("Servidor encerrado.");
+});
 export default server;
