@@ -16,8 +16,8 @@ server.listen(PORT, () => {
   console.log(`Servidor funcionando em http://localhost:${PORT}`)
 });
 
-  server.close(() => {
-    console.log("Servidor encerrado.")
-  });
+server.close(() => {
+  console.log("Servidor encerrado.")
+});
 
 export default server
