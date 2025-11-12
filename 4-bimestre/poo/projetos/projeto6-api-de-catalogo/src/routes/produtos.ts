@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express"
+import Router from "express"
 
 const router = Router()
 
@@ -8,12 +8,12 @@ let produtos = [
   { id: 3, nome: "Monitor Full HD", preco: 900 },
 ]
 
-router.get("/", (req: Request, res: Response) => {
+router.get("/", (req, res) => {
   res.json(produtos)
 })
 
-router.get("/:id", (req: Request, res: Response) => {
-  const id = Number(req.params.id)
+router.get("/:id", (req, res) => {
+  const id = parseInt(req.params.id)
   const produto = produtos.find((p) => p.id === id)
 
   if (produto) {
@@ -23,7 +23,7 @@ router.get("/:id", (req: Request, res: Response) => {
   }
 });
 
-router.post("/", (req: Request, res: Response) => {
+router.post("/", (req, res) => {
   const novoProduto = req.body
   produtos.push(novoProduto)
   res.status(200).json(novoProduto)

@@ -6,21 +6,21 @@ import router from "./routes";
 
 dotenv.config();
 
-const app = express();
+const server = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(helmet());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "../public")));
+server.use(helmet());
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(express.static(path.join(__dirname, "../public")));
 
-app.use("/", router);
+server.use("/", router);
 
-const server = app.listen(PORT, () => {
+const app = server.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
-server.close(() => {
+app.close(() => {
   console.log("Servidor encerrado.");
 });
 
