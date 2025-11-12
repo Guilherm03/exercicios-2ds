@@ -1,27 +1,26 @@
-import express from "express";
-import helmet from "helmet";
-import dotenv from "dotenv";
-import path from "path";
-import router from "./routes";
+import express from "express"
+import helmet from "helmet"
+import dotenv from "dotenv"
+import path from "path"
+import router from "./routes"
 
-dotenv.config();
+dotenv.config()
 
-const server = express();
-const PORT = process.env.PORT || 3000;
+const appExpress = express()
+const PORT = process.env.PORT || 3000
 
-server.use(helmet());
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
-server.use(express.static(path.join(__dirname, "../public")));
+appExpress.use(helmet())
+appExpress.use(express.json())
+appExpress.use(express.urlencoded({ extended: true }))
+appExpress.use(express.static(path.join(__dirname, "../public")))
+appExpress.use("/", router)
 
-server.use("/", router);
-
-const app = server.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+const server = appExpress.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`)
 });
 
-app.close(() => {
-  console.log("Servidor encerrado.");
-});
+server.close(() => {
+  console.log("Servidor encerrado.")
+})
 
-export default server;
+export default server
